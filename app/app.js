@@ -5,7 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.view1',
   'myApp.view2',
-  'myApp.version'
+  'myApp.version',
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
@@ -132,3 +132,43 @@ angular.module('app1', [])
       console.log('Finished at:', new Date())
     })
 })
+
+// Directives
+
+angular.module('greetings', [])
+.directive("welcome", function() {
+  return {
+    restrict: "A",
+    link: function(){
+      alert("Howdy!");
+    }
+  }
+})
+
+.directive("goodbye", function() {
+  return {
+    restrict: "A",
+    link: function(){
+      alert("See ya later!");
+    }
+  }
+});
+
+// Directive functionality
+
+angular.module('functionalities', [])
+.directive("entering", function(){
+ return function(scope, element, attrs) {
+      element.bind("mouseenter", function(){
+        element.addClass(attrs.entering);
+      })
+    }
+})
+
+.directive("leaving", function(){
+ return function(scope, element, attrs) {
+      element.bind("mouseleave", function(){
+        element.removeClass(attrs.entering);
+      })
+    }
+});
