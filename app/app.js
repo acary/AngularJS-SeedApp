@@ -57,3 +57,78 @@ angular.module('app').controller('PostCtrl', function(messages) {
   };
 
 });
+
+// appform
+
+angular.module('appForm', []);
+
+angular.module('appForm').controller('MyControl', function (){
+  var self = this;
+  self.greeting = 'Hello, programmer.';
+  console.log(self.greeting);
+
+  self.changeGreeting = function(greeting) {
+    self.greeting = greeting;
+  };
+});
+
+// Form (form.html)
+angular.module('appForm').factory('greetings', function() {
+  var greetings = {};
+
+  greetings.list = [];
+  greetings.add = function(greeting) {
+    greetings.list.push({id: greetings.list.length, text: greeting});
+  };
+
+  return greetings;
+});
+
+// Controller for Form
+angular.module('appForm').controller('myControl', function(greetings) {
+  var self = this;
+
+  self.greetings = greetings.list;
+
+});
+
+// Controller for updating messages
+angular.module('appForm').controller('PostControl', function(greetings) {
+  var self = this;
+  self.greetings = "Hello, great World!";
+
+  self.addGreeting = function(greeting) {
+    greetings.add(greeting);
+    self.newGreeting = '';
+  };
+
+});
+
+// Promises
+
+function getData($timeout, $q) {
+  return function() {
+    // simulated async function
+    return $q(function(resolve, reject) {
+      $timeout(function() {
+        resolve(Math.floor(Math.random() * 10))
+      }, 2000)
+    })
+  }
+}
+
+angular.module('app1', [])
+.factory('getData', getData)
+.run(function(getData) {
+  var promise = getData()
+  .then(function(num) {
+      console.log(num)
+      return num * 2
+    })
+    .then(function(num) {
+      console.log(num)
+    })
+    .finally(function() {
+      console.log('Finished at:', new Date())
+    })
+})

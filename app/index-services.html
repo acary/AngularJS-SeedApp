@@ -10,6 +10,7 @@
       <h1>Services</h1>
       <div ng-controller="ListCtrl as list">
           <p ng-repeat="message in list.messages">{{ message.id}}: {{ message.text }}</p>
+          <pre>List: {{ list | json }}</pre>
       </div>
       <div ng-controller="PostCtrl as post">
           <form ng-submit="post.addMessage(post.newMessage)">
