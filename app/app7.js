@@ -1,12 +1,12 @@
 angular.module('phoneApp', [])
 
-.controller('AppController', function($scope){
-  $scope.leaveVoicemail = function(number, message){
+.controller('AppController', function($scope) {
+  $scope.leaveVoicemail = function(number, message) {
     alert('Number: ' + number + ' said: ' + message);
   };
 })
 
-.directive('phone', function(){
+.directive('phone', function() {
   return {
     restrict: 'E',
     scope: {
