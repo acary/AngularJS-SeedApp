@@ -2,17 +2,19 @@
 
 .menu {
   list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+  border-bottom: 0em solid black;
+  margin-bottom: 0em;
+  padding: 2em 0 0 0;
+  height: 75px;
+  position: relative;
 }
 
 .menu:before {
-  content: "[";
+  content: "";
 }
 
 .menu:after {
-  content: "]";
+  content: "";
 }
 
 .menu > li {
@@ -22,4 +24,15 @@
 .menu > li + li:before {
   content: "|";
   padding-right: 0.3em;
+}
+
+body { 
+  background: #ffffff url("/images/brushed.png") repeat;
+  border-top: 0.3em solid #8C1515;
+  line-height: 1.42857143;
+}
+
+.stretch {
+  background-color: white;
+  width: 100%;
 }
