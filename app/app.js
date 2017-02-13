@@ -7,13 +7,3 @@ var myApp = angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
 ]);
-
-myApp.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
-
-myApp.controller('WelcomeController', ['$scope', function($scope) {
-  $scope.name = 'Andy';
-}]);
