@@ -36,3 +36,7 @@ body {
   background-color: white;
   width: 100%;
 }
+
+.login-button {
+  line-height: 2.2em !important;
+}
