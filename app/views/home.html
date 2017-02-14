@@ -15,19 +15,21 @@
             
             <div ng-controller="WelcomeController">
                 
-                <h1>Hello, {{ name }}!</h1>
+                <h1>Hello, {{ user.name }}!</h1>
                 
                 <h3>Welcome to my AngularJS app!</h3>
 
-                <p>Not {{ name }}? Enter your real name below:</p>
+                <p>Not {{ user.name }}? Enter your real name below:</p>
 
-                <form name="form" class="">
+                <form ng-submit="submit(user.name)" ng-controller="WelcomeController">
                 
                     <div class="input-group">
-                        <input type="text" ng-model="name" class="form-control" placeholder="Your Name" />
-                    </div>
+                        <input type="text" ng-model="user.name" name="user.name" />
+                        <br>&nbsp;<br>
+    
+                    <input type="submit" class="btn btn-primary" value="Submit" />
 
-                    <input type="submit" class="btn btn-primary" ng-click="update(name)" value="Update" />
+                    </div>
 
                 </form>
 

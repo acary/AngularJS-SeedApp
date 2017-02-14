@@ -1,6 +1,5 @@
 // SERVICES
-myApp.service('nameService', function() {
-   
-    this.name = "Andy";
+myApp.service('nameService', function() {   
+    this.user = "Andy";
     
 });

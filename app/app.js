@@ -7,3 +7,5 @@ var myApp = angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
 ]);
+
+myApp.value('userInput', {});
