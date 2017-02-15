@@ -23,13 +23,42 @@
 
                 <form>
                 <div class="form-group">
+
+                    <div class="radio">
+                        <label>
+                        <input type="radio" ng-model="content.type" value="Problem" name="problem" id="radio1" checked>
+                        I have a Problem
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                        <input type="radio" ng-model="content.type" value="Incident" name="incident" id="radio2">
+                        I would like to report an Incident
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                        <input type="radio" ng-model="content.type" value="Request" name="request" id="radio3">
+                        I have a Request
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                        <input type="radio" ng-model="content.type" value="Defect" name="defect" id="radio4">
+                        I found a Defect
+                        </label>
+                    </div>
                     
-                    <label class="sr-only" for="content">Describe your needs</label>
-                    <input type="textarea" ng-model="content" rows="3" class="form-control input-lg" id="content" name="content" placeholder="Describe your needs"/>
-                    <!--<textarea class="form-control" rows="3"></textarea>-->
-                    <!--<br>&nbsp;<br>-->
+                    <label class="sr-only" for="description">Describe your needs</label>
+                    
+                    <textarea class="form-control" ng-model="content.description" name="description" ng-maxlength="1000" rows="5"></textarea>
+
+                    <br>
     
-                    <a href="/#!/portal" class="btn btn-primary form-control input-lg login-button">Log In</a>
+                    <a href="/#!/preview" class="btn btn-primary form-control input-lg login-button">Preview</a>
                 </form>
 
             </div>

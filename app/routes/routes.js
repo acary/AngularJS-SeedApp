@@ -14,6 +14,10 @@ myApp.config(function($locationProvider, $routeProvider) {
     .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutController',
+    })
+    .when('/preview', {
+        templateUrl: 'views/preview.html',
+        controller: 'PreviewController',
     });
 
     //.otherwise({redirectTo: '/view1'});

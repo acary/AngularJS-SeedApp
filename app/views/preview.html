@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+    
+    <div class="row">
+        
+        <div class="col-md-12">
+            
+            <div ng-controller="PreviewController">
+
+                <div class="alert alert-info" role="alert"><p>{{ user.name }}, please confirm then submit report.</p></div>
+                
+                <h1>Confirm Report</h1>
+
+                <h3>Please ensure the accuracy below.</h3>
+
+                <div>
+
+                    <p>Your Name: {{ user.name }}</p>
+
+                    <p>Inquiry Type: {{ content.type }}</p>
+
+                    <p>Description: {{ content.description }}</p>
+
+                    <br>
+    
+                    <a href="/#!/confirm" class="btn btn-primary form-control input-lg login-button">Report</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+</html>

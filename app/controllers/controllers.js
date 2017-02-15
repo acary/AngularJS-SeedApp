@@ -23,7 +23,12 @@ myApp.controller('AboutController', ['$scope', function($scope) {
     $scope.getDateTime = new Date();
 }]);
 
-myApp.controller('PortalController', ['$scope', 'nameService', function($scope, nameService) {
+myApp.controller('PortalController', ['$scope', 'nameService', 'portalService', function($scope, nameService, portalService) {
     $scope.user = nameService.user;
-    $scope.description = nameService.description;
+    $scope.content = portalService.content;
+}]);
+
+myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService', function($scope, nameService, portalService) {
+    $scope.user = nameService.user;
+    $scope.content = portalService.content;
 }]);
