@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "angularjs-app",
   "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "version": "0.0.1",
+  "description": "A starter project by Andy Cary for AngularJS",
+  "repository": "https://github.com/acary/AngularJS-SeedApp",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
@@ -23,7 +23,7 @@
     "update-deps": "npm update",
     "postupdate-deps": "bower update",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "npm install",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
