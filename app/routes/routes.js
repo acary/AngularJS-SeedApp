@@ -1,5 +1,6 @@
 // ROUTES
 myApp.config(function($locationProvider, $routeProvider) {
+    //$locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
 
     $routeProvider
@@ -20,5 +21,5 @@ myApp.config(function($locationProvider, $routeProvider) {
         controller: 'PreviewController',
     });
 
-    //.otherwise({redirectTo: '/view1'});
+    //.otherwise({redirectTo: '/'});
 });
