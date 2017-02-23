@@ -3,6 +3,13 @@
 <head>
     <!-- Bootstrap: Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript">
+        console.log('Start TinyMCE');
+        tinymce.init({
+        selector: 'textarea#mydescription',  // change this value according to your HTML
+        plugins: 'advlist autolink link image lists charmap print preview',
+        });
+    </script>
 </head>
 
 <body>
@@ -21,7 +28,7 @@
 
                 <h3>How can we help you?</h3>
 
-                <form>
+                <form method="POST">
                 <div class="form-group">
 
                     <div class="radio">
@@ -54,7 +61,7 @@
                     
                     <label class="sr-only" for="description">Describe your needs</label>
                     
-                    <textarea class="form-control" ng-model="content.description" name="description" ng-maxlength="1000" rows="5"></textarea>
+                    <textarea class="form-control" ng-model="content.description" id="mydescription" ng-maxlength="1000" rows="5"></textarea>
 
                     <br>
     
