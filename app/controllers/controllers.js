@@ -31,9 +31,9 @@ myApp.controller('PortalController', ['$scope', 'nameService', 'portalService', 
     $scope.user = nameService.user;
     $scope.content = portalService.content;
 
-    $scope.$watch('content', function(newVal, oldVal){
-    console.log('changed');
-    }, true);
+    // $scope.$watch('content', function(newVal, oldVal){
+    // console.log('changed');
+    // }, true);
 }]);
 
 // TinyMceController
