@@ -4,11 +4,7 @@
     <!-- Bootstrap: Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script type="text/javascript">
-        console.log('Start TinyMCE');
-        tinymce.init({
-        selector: 'textarea#mydescription',  // change this value according to your HTML
-        plugins: 'advlist autolink link image lists charmap print preview',
-        });
+        console.log('Start portal');
     </script>
 </head>
 
@@ -31,12 +27,12 @@
                 <form method="POST">
                 <div class="form-group">
 
-                    <div class="radio">
+                    <!--<div class="radio">
                         <label>
                         <input type="radio" ng-model="content.type" value="Problem" name="problem" id="radio1" checked>
                         I have a Problem
                         </label>
-                    </div>
+                    </div>-->
 
                     <div class="radio">
                         <label>
@@ -45,7 +41,7 @@
                         </label>
                     </div>
 
-                    <div class="radio">
+                    <!--<div class="radio">
                         <label>
                         <input type="radio" ng-model="content.type" value="Request" name="request" id="radio3">
                         I have a Request
@@ -57,15 +53,17 @@
                         <input type="radio" ng-model="content.type" value="Defect" name="defect" id="radio4">
                         I found a Defect
                         </label>
+                    </div>-->
+                    
+                    <div ng-controller="TinyMceController">
+                        <label class="sr-only" for="content.description">Describe your needs</label>
+                        <textarea ui-tinymce="tinymceOptions" ng-model="content.description" name="content.description" ng-maxlength="1000" rows="5"></textarea>
                     </div>
-                    
-                    <label class="sr-only" for="description">Describe your needs</label>
-                    
-                    <textarea class="form-control" ng-model="content.description" id="mydescription" ng-maxlength="1000" rows="5"></textarea>
 
                     <br>
     
                     <a href="/#!/preview" class="btn btn-primary form-control input-lg login-button">Preview</a>
+
                 </form>
 
             </div>

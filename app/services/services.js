@@ -8,6 +8,6 @@ myApp.service('nameService', function() {
 myApp.service('portalService', function() {
     this.content = {
         type: null,
-        description: null,
+        description: 'Hello',
     }
 });
