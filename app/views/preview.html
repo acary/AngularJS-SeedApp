@@ -23,15 +23,21 @@
 
                 <div>
 
-                    <p>Your Name: {{ user.name }}</p>
+                    <form ng-submit="sendPost()">
 
-                    <p>Inquiry Type: {{ content.type }}</p>
+                        <p>Your Name: {{ user.name }}</p>
 
-                    <p>Description: {{ content.description | htmlToPlaintext }}</p>
+                        <p>Inquiry Type: {{ content.type }}</p>
 
-                    <br>
-    
-                    <a href="/#!/confirm" class="btn btn-primary form-control input-lg login-button">Report</a>
+                        <p>Description: {{ content.description | htmlToPlaintext }}</p>
+
+                        <br>
+        
+                        <a href="/#!/confirm" class="btn btn-primary form-control input-lg login-button">Report</a>
+
+                        <button type="submit">Send</button>
+
+                    </form>
 
                 </div>
 

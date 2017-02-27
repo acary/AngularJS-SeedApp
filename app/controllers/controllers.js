@@ -57,7 +57,33 @@ myApp.controller('TinyMceController', ['$scope', 'portalService', function($scop
 }]);
 
 // PreviewController
-myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService', function($scope, nameService, portalService) {
+myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService', '$http', 'base64', function($scope, nameService, portalService, $http, base64) {
     //$scope.user = nameService.user;
+
     $scope.content = portalService.content;
+    $scope.sendPost = function() {
+        var username='acpro';
+        var password='Servicenow!23';
+        var authdata=base64.encode(username+':'+password);
+            console.log(authdata);
+
+        var req = {
+        method: 'POST',
+        url: 'https://dev26890.service-now.com/api/now/table/incident',
+        headers: {
+        'Accept' : 'application/json',
+        'Authorization' : 'Basic ' + authdata,
+        'Content-Type' : 'application/json',
+        },
+        data: { "short_description" : "Hello this is my description AC."}
+    }
+        console.log(req)
+
+    $http(req)
+
+    .success(function(data, status) {
+        //$scope.hello = data;
+        alert(data);
+    })
+    }
 }]);
