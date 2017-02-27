@@ -61,6 +61,12 @@ myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService',
     //$scope.user = nameService.user;
 
     $scope.content = portalService.content;
+    var myName = nameService.user.name;
+        console.log(myName);
+    var myDescription = portalService.content.description;
+    myDescription = myDescription.replace(/<(?:.|\n)*?>/gm, '');
+        console.log(myDescription);
+
     $scope.sendPost = function() {
         var username='acpro';
         var password='Servicenow!23';
@@ -75,7 +81,10 @@ myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService',
         'Authorization' : 'Basic ' + authdata,
         'Content-Type' : 'application/json',
         },
-        data: { "short_description" : "Hello this is my description AC."}
+        data: {
+            "comments":myDescription,
+            "short_description":"Sent from AndyCaryPro: " + myName
+        }
     }
         console.log(req)
 
@@ -83,7 +92,7 @@ myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService',
 
     .success(function(data, status) {
         //$scope.hello = data;
-        alert(data);
+        alert("Thank you for your input!");
     })
     }
 }]);
