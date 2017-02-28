@@ -1,7 +1,7 @@
 // CONTROLLERS
 
 // WelcomeController
-myApp.controller('WelcomeController', ['$scope', 'nameService', 'portalService', function($scope, nameService, portalService) {
+myApp.controller('WelcomeController', ['$scope', 'nameService', 'portalService', '$location', function($scope, nameService, portalService, $location) {
     $scope.user = nameService.user;
 
     $scope.$watch('user', function() {
@@ -57,23 +57,23 @@ myApp.controller('TinyMceController', ['$scope', 'portalService', function($scop
 }]);
 
 // PreviewController
-myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService', '$http', 'base64', function($scope, nameService, portalService, $http, base64) {
-    //$scope.user = nameService.user;
-
+myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService', '$http', 'base64', '$location', function($scope, nameService, portalService, $http, base64, $location) {
+    $scope.user = nameService.user;
     $scope.content = portalService.content;
+        
     var myName = nameService.user.name;
         console.log(myName);
     var myDescription = portalService.content.description;
     myDescription = myDescription.replace(/<(?:.|\n)*?>/gm, '');
         console.log(myDescription);
 
-    $scope.sendPost = function() {
-        var username='acpro';
-        var password='Servicenow!23';
-        var authdata=base64.encode(username+':'+password);
-            console.log(authdata);
+$scope.sendPost = function() {
+    var username='acpro';
+    var password='Servicenow!23';
+    var authdata=base64.encode(username+':'+password);
+        console.log(authdata);
 
-        var req = {
+    var req = {
         method: 'POST',
         url: 'https://dev26890.service-now.com/api/now/table/incident',
         headers: {
@@ -84,15 +84,23 @@ myApp.controller('PreviewController', ['$scope', 'nameService', 'portalService',
         data: {
             "comments":myDescription,
             "short_description":"Sent from AndyCaryPro: " + myName
+            }
         }
-    }
-        console.log(req)
+    console.log(req)
 
     $http(req)
 
     .success(function(data, status) {
         //$scope.hello = data;
         alert("Thank you for your input!");
-    })
+        
+    $scope.redirect = function(){
+        $location.url('/about');
     }
+    $scope.redirect();
+
+    });
+
+}
+
 }]);

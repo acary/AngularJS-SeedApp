@@ -19,7 +19,7 @@ myApp.config(function($locationProvider, $routeProvider) {
     .when('/preview', {
         templateUrl: 'views/preview.html',
         controller: 'PreviewController',
-    });
+    })
 
     //.otherwise({redirectTo: '/'});
 });
