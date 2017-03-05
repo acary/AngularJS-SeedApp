@@ -68,7 +68,7 @@ angular.module('ui.tinymce', [])
 var myApp = angular.module('myApp', [
   'ngRoute',
   'ui.tinymce',
-  'ab-base64',
+  'ab-base64'
 ])
 
 .filter("htmlToPlaintext", function() {
